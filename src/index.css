@@ -1,0 +1,9 @@
+@import "tailwindcss";
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+font-family: "Lato", sans-serif;
+@theme {
+  --font-lato: "Lato", sans-serif;
+}
