@@ -4,7 +4,7 @@ import logo from "../assets/Images/Logo/Logo.png";
 const Navber = () => {
   return (
     <>
-      <nav>
+      <nav className="absolute top-0 left-0 z-50 w-full bg-transparent">
         <div className="container">
           <div className="pt-6.5 flex items-center ">
             <div className="w-[25%] me-50">
