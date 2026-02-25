@@ -9,8 +9,8 @@ const Banner = () => {
           <div className="flex flex-col md:flex-row gap-35.25 items-center ">
             {/* Left Content Side */}
             <div className="max-w-131.5">
-              <h1 className="text-[#1B1B1B] text-[60px] font-normal leading-[1.2]">
-                Empower Your Team <br />
+              <h1 className="text-[#1B1B1B] text-[60px] font-normal leading-[71.5px] font-lato">
+                Empower Your Team
                 <span className="font-bold">With CoreWave's</span>
               </h1>
 
