@@ -17,8 +17,8 @@ const Navber = () => {
             </div>
 
             {/* Desktop Menu */}
-            <div className="hidden lg:block w-[55%]">
-              <ul className="flex items-center gap-8">
+            <div className="hidden lg:flex w-[55%]">
+              <ul className="flex items-center justify-between w-full gap-8">
                 <li><a href="#" className="nav-link">Home</a></li>
                 <li><a href="#" className="nav-link">About</a></li>
                 <li><a href="#" className="nav-link">Portfolio</a></li>

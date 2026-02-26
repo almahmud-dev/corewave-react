@@ -60,7 +60,7 @@ const Banner = () => {
               <img
                 src={heroimg}
                 alt="Hero Image"
-                className="relative z-10 w-full max-w-135.25"
+                className="relative z-10 w-full max-w-135.25 bg-no-repeat bg-cover"
               />
             </div>
           </div>
