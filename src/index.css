@@ -6,3 +6,10 @@
 @theme {
   --font-lato: "Lato", sans-serif;
 }
+.nav-link {
+  @apply text-gray-700 transition-colors duration-300;
+}
+
+.nav-link:hover {
+  @apply text-[#06C279];
+}
