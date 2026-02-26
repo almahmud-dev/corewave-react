@@ -52,14 +52,14 @@ const Banner = () => {
 
             {/* Right Image Side - image ke nice namanor jonno self-end and mt-auto */}
             <div className="relative w-full flex-1 flex justify-center md:justify-end items-end self-end mt-auto">
-              {/* Background Circle - ডানে সরানোর জন্য left-[55%] ব্যবহার করা হয়েছে */}
+              {/* Background Circle - left e soranor jonno left-[55%] */}
               <div
                 className="hidden lg:block absolute top-[55%] left-[55%] -translate-x-1/2 -translate-y-1/2 
                 w-70 h-70 md:w-112.5 md:h-112.5 border-20 md:border-40 
                 border-[#D1F7E9] rounded-full -z-10"
               ></div>
 
-              {/* Hero Image - বামে সরানোর জন্য md:-translate-x-10 ব্যবহার করতে পারেন */}
+              {/* Hero Image - Right e soranor jonno md:-translate-x-10  */}
               <img
                 src={heroimg}
                 alt="Hero Image"

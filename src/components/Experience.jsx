@@ -3,14 +3,14 @@ import experience from '../assets/Images/Experience/experience.png'
 const Experience = () => {
   return (
     <>
-    <section>
+    <section className='pt-21.25 pb-25'>
             <div className="container mx-auto py-10 lg:py-0 px-4">
               <div className="flex flex-col md:flex-row gap-10 md:gap-20 lg:gap-35.25 items-center">
                 {/* Left Content Side */}
                 <div className="w-full lg:max-w-131.25 text-center md:text-left">
                   <h1
                     className="text-[#1B1B1B] text-[45px] sm:text-[40px] md:text-[38px]
-                  font-semibold leading-[30px] md:leading-[54px] font-lato"
+                  font-semibold leading-7.5 md:leading-13 font-lato"
                   >
                     Experience the power of Corewave
                   </h1>
@@ -41,11 +41,7 @@ const Experience = () => {
                   className="relative mt-12 md:mt-0 w-full max-w-100
                 md:max-w-none"
                 >
-                  <div
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2
-                  -translate-y-1/2 w-70 h-70 md:w-112.5 md:h-112.5 border-20
-                  md:border-40 border-[#D1F7E9] rounded-full -z-10"
-                  ></div>
+                  
                   <img
                     src={experience}
                     alt="Hero Image"
