@@ -64,7 +64,7 @@ const Banner = () => {
               <img
                 src={heroimg}
                 alt="Hero Image"
-                className="relative z-10 w-full h-auto object-contain"
+                className="relative z-10 w-full  object-contain"
               />
             </div>
           </div>
