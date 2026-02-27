@@ -6,7 +6,7 @@ const Banner = () => {
     <>
       {/* items-stretch এর বদলে items-center ব্যবহার করা হয়েছে যাতে বড় স্ক্রিনেও কন্টেন্ট মাঝে থাকে */}
       <section className="relative bg-[#EFFFF9] flex items-center overflow-hidden">
-        <div className="container mx-auto px-4 relative z-20 flex md:pt-15 lg:py-14">
+        <div className="container mx-auto px-4 relative z-20 flex md:pt-15 ">
           {/* md পর্যন্ত flex-col রাখা হয়েছে যাতে টেক্সটের নিচে ইমেজ থাকে, lg থেকে flex-row হবে */}
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-35.25 items-center w-full">
             {/* Left Content Side */}
@@ -57,8 +57,11 @@ const Banner = () => {
             <div className="relative w-full flex-1 flex justify-center lg:justify-end items-end self-end mt-auto min-h-[300px] lg:min-h-[500px]">
               {/* Background Circle */}
               <div
-                className="hidden lg:block absolute top-[55%] left-[55%] -translate-x-1/2 -translate-y-1/2 
-    w-112.5 h-112.5 border-40 border-[#D1F7E9] rounded-full -z-10"
+                className="hidden lg:block absolute top-[55%] left-[55%]
+  lg:-translate-x-[60%] xl:-translate-x-1/2 lg:-translate-y-[45%] xl:-translate-y-1/2
+  w-80 h-80 lg:w-80 lg:h-80 xl:w-112.5 xl:h-112.5
+  border-20 lg:border-30 xl:border-40
+  border-[#D1F7E9] rounded-full -z-10"
               ></div>
 
               {/* Hero Image - এখানে h-[75vh] এবং self-end নিশ্চিত করবে এটি নিচে লেগে থাকবে */}
