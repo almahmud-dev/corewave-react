@@ -6,15 +6,15 @@ const Banner = () => {
     <>
       <section
         className="relative bg-[#EFFFF9] 
-              pt-[90px] 
-              lg:pt-[70px] 
+              pt-22.5 
+              lg:pt-17.5 
               flex items-center overflow-hidden"
       >
         <div
           className="container mx-auto px-4 relative z-20 flex 
               pt-0 
-              sm:pt-[100px] 
-              md:pt-[80px] 
+              sm:pt-25 
+              md:pt-20 
               lg:pt-0"
         >
           <div
@@ -25,7 +25,7 @@ const Banner = () => {
           >
             {/* Left Content */}
             <div
-              className="w-full lg:max-w-[520px] 
+              className="w-full lg:max-w-130 
                 text-center lg:text-left"
             >
               <h1
@@ -45,7 +45,7 @@ const Banner = () => {
                     font-lato 
                     mt-4 md:mt-6 
                     mb-8 md:mb-10 
-                    max-w-[550px] 
+                    max-w-137.5 
                     mx-auto lg:mx-0"
               >
                 Boost Productivity and Wellness in Your Organization with
@@ -96,7 +96,7 @@ const Banner = () => {
             <div
               className="relative w-full flex-1 
                 flex justify-center 
-                min-h-[300px] lg:min-h-[500px]"
+                min-h-75 lg:min-h-125"
             >
               {/* Background Circle */}
               <div
@@ -104,10 +104,10 @@ const Banner = () => {
                     absolute top-1/2 left-1/2
                     lg:-translate-x-[40%] lg:-translate-y-[45%]
                     xl:-translate-x-[40%] xl:-translate-y-[50%]
-                    w-[300px] h-[300px]
-                    lg:w-[320px] lg:h-[320px]
-                    xl:w-[450px] xl:h-[450px]
-                    border-[20px] lg:border-[30px] xl:border-[45px]
+                    w-75 h-75
+                    lg:w-[320px] lg:h-80
+                    xl:w-112.5 xl:h-112.5
+                    border-20 lg:border-30 xl:border-45
                     border-[#DAF6EB]
                     rounded-full 
                     -z-10"
