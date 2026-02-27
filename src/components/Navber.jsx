@@ -8,7 +8,7 @@ const Navber = () => {
   return (
     <>
       <nav className="absolute top-0 left-0 z-50 w-full bg-transparent">
-        <div className="container px-10 lg:px-0">
+        <div className="container px-4">
           <div className="pt-6.5 flex items-center justify-between">
 
             {/* Logo */}
