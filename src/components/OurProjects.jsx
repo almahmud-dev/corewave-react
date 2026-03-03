@@ -1,104 +1,148 @@
-import React, { useState } from 'react';
-// ইমেজগুলো আপনার ফোল্ডার পাথ অনুযায়ী ইমপোর্ট করুন
-import img1 from '../../src/assets/Images/Our_Projects/Project1.png';
-import img2 from '../../src/assets/Images/Our_Projects/Project2.png';
-import img3 from '../../src/assets/Images/Our_Projects/Project3.png';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const OurProjects = () => {
-  // বর্তমানে কোন ট্যাব সিলেক্টেড আছে তা রাখার জন্য State
+  const [projects, setProjects] = useState([]);
   const [activeTab, setActiveTab] = useState('UI/UX Design');
+  const [loading, setLoading] = useState(true);
 
-  // ট্যাবগুলোর লিস্ট
   const tabs = ['Mobile App', 'Web Development', 'UI/UX Design', 'Graphic Design', 'Motion Graphic'];
 
-  // প্রতিটি ট্যাবের জন্য আলাদা ডাটা (ইমেজ, টাইটেল, ডেসক্রিপশন)
-  const projectData = {
-    'UI/UX Design': [
-      { id: 1, img: img1, title: 'Portfolio Landing Page', desc: 'Web development is the art of creating engaging and visually appealing websites' },
-      { id: 2, img: img2, title: 'Plant Landing Page', desc: 'Web development is the art of creating engaging and visually appealing websites' },
-      { id: 3, img: img3, title: 'Real Estate Landing Page', desc: 'Web development is the art of creating engaging and visually appealing websites' },
-    ],
-    'Web Development': [
-      { id: 1, img: img2, title: 'E-commerce Site', desc: 'High-performance web applications built with modern technologies.' },
-      { id: 2, img: img3, title: 'SaaS Dashboard', desc: 'Scalable and secure web solutions for growing businesses.' },
-      { id: 3, img: img1, title: 'Corporate Portal', desc: 'Professional websites tailored to your brand identity.' },
-    ],
-    'Mobile App': [
-        { id: 1, img: img3, title: 'Fitness Tracker App', desc: 'User-friendly mobile experiences for iOS and Android.' },
-        { id: 2, img: img1, title: 'Food Delivery UI', desc: 'Seamless mobile interfaces with a focus on usability.' },
-        { id: 3, img: img2, title: 'Social Media App', desc: 'Modern app designs that engage and retain users.' },
-    ],
-    // বাকি ট্যাবগুলো খালি থাকলে UI/UX এর ডাটা বা অন্য কিছু দেখাতে পারেন
-  };
+  // ১. API থেকে ডেটা ফেচ করা
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=15');
+        const data = await response.json();
+        const formattedData = data.map((item, index) => ({
+          id: item.id,
+          title: item.title.slice(0, 25),
+          desc: "Web development is the art of creating engaging and visually appealing websites",
+          category: tabs[index % tabs.length],
+          image: `https://picsum.photos/seed/${item.id + 100}/600/400`
+        }));
 
-  // ডিফোল্ট ডাটা হ্যান্ডলিং (যদি কোনো ট্যাবে ডাটা না থাকে)
-  const currentProjects = projectData[activeTab] || projectData['UI/UX Design'];
+        setProjects(formattedData);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error:", error);
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const filteredProjects = projects.filter(item => item.category === activeTab);
 
   return (
-    <section className='pt-[90px] pb-20 bg-white'>
+    <section className='pt-[91px] pb-20 bg-white font-sans overflow-hidden'>
       <div className="container mx-auto px-4">
         
-        {/* টাইটেল এবং ট্যাব সেকশন */}
+        {/* Header Section */}
         <div className='text-center mb-16'>
-          <h3 className='text-[45px] text-[#1B1B1B] leading-[54px] font-lato font-semibold mb-10'>
+          <motion.h3 
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className='text-[45px] text-[#1B1B1B] leading-tight font-bold mb-10'
+          >
             Our Latest Project
-          </h3>
+          </motion.h3>
           
-          {/* ট্যাব লিস্ট উইথ বটম লাইন */}
-          <div className="relative flex flex-wrap justify-center items-center gap-6 md:gap-10 border-b-2 border-[#D9D9D9] pb-[18px]">
-            {tabs.map((tab) => (
-              <span
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`cursor-pointer text-lg font-medium transition-all duration-300 relative 
-                  ${activeTab === tab ? 'text-[#00C37A]' : 'text-[#7E7E7E]'}
-                  ${activeTab === tab ? 
-                    "after:content-[''] after:absolute after:left-0 after:bottom-[-20px] after:w-full after:h-[4px] after:bg-[#00C37A] after:rounded-full after:z-10" 
-                    : ""
-                  }`}
-              >
-                {tab}
-              </span>
-            ))}
+          {/* Tab Navigation Container */}
+          <div className="relative border-b-2 border-[#D9D9D9] mb-16 px-2">
+            <div className="flex justify-start md:justify-center items-center gap-6 md:gap-10 overflow-x-auto no-scrollbar pb-[18px] relative">
+              
+              {tabs.map((tab) => (
+                <button
+                  key={tab}
+                  onMouseEnter={() => setActiveTab(tab)} // Hover করলে চেঞ্জ হবে
+                  className={`cursor-pointer text-lg font-medium relative whitespace-nowrap px-2 transition-colors duration-300 z-10
+                    ${activeTab === tab ? 'text-[#00C37A]' : 'text-[#7E7E7E]'}`}
+                >
+                  {tab}
+                  
+                  {/* ২. Framer Motion Sliding Underline (ম্যাজিক এখানে) */}
+                  {activeTab === tab && (
+                    <motion.div 
+                      layoutId="underline" 
+                      className="absolute left-0 right-0 bottom-[-20px] h-[4px] bg-[#00C37A] rounded-full z-20"
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    />
+                  )}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* প্রজেক্ট গ্রিড (ইমেজ এবং টেক্সট) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {currentProjects.map((item) => (
-            <div key={item.id} className="group flex flex-col items-center">
-              
-              {/* ইমেজের অংশ (Rounded & Clean) */}
-              <div className="rounded-[24px] overflow-hidden mb-8 w-full">
-                <img 
-                  src={item.img} 
-                  alt={item.title} 
-                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105" 
-                />
-              </div>
+        {/* ৩. Project Grid with Smooth Entrance */}
+        {loading ? (
+          <div className="flex justify-center items-center min-h-[300px]">
+             <motion.div 
+               animate={{ rotate: 360 }}
+               transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+               className="h-12 w-12 border-t-2 border-b-2 border-[#00C37A] rounded-full"
+             />
+          </div>
+        ) : (
+          <motion.div 
+            layout
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+          >
+            <AnimatePresence mode='popLayout'>
+              {filteredProjects.map((item) => (
+                <motion.div 
+                  key={item.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.9, y: 10 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  className="group flex flex-col items-center"
+                >
+                  {/* Image Area */}
+                  <div className="rounded-[24px] overflow-hidden mb-8 w-full bg-gray-100 shadow-sm transition-shadow hover:shadow-xl">
+                    <motion.img 
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.6 }}
+                      src={item.image} 
+                      alt={item.title} 
+                      className="w-full h-[280px] object-cover cursor-pointer" 
+                    />
+                  </div>
 
-              {/* টেক্সট সেকশন (শ্যাডো নেই, একদম ক্লিন) */}
-              <div className="text-center px-2">
-                <h4 className="text-[24px] font-bold text-[#1B1B1B] mb-3 font-lato">
-                  {item.title}
-                </h4>
-                <p className="text-[#7E7E7E] text-[16px] leading-[26px] max-w-[340px]">
-                  {item.desc}
-                </p>
-              </div>
-
-            </div>
-          ))}
-        </div>
+                  {/* Text Area */}
+                  <div className="text-center px-2">
+                    <h4 className="text-[24px] font-bold text-[#1B1B1B] mb-3 capitalize">
+                      {item.title}
+                    </h4>
+                    <p className="text-[#7E7E7E] text-[16px] leading-[26px] max-w-[340px] mx-auto">
+                      {item.desc}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
+        )}
 
         {/* View All Button */}
-        <div className="flex justify-center mt-14">
-          <button className="bg-[#00C37A] hover:bg-[#00a868] text-white font-semibold py-4 px-10 rounded-lg transition-all duration-300">
+        <div className="flex justify-center mt-16">
+          <motion.button 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-[#00C37A] text-white font-bold py-4 px-10 rounded-lg shadow-md hover:bg-[#00a868] transition-colors"
+          >
             View All Projects
-          </button>
+          </motion.button>
         </div>
-
       </div>
+
+      <style>{`
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      `}</style>
     </section>
   );
 };
