@@ -73,11 +73,11 @@ const ServiceCard = ({ service, description, isSpecial }) => {
         <img
           src={service.img}
           alt={service.heading}
-          className={`w-10 h-10 md:w-12 md:h-12 transition-all duration-300 group-hover:brightness-0 group-hover:invert 
+          className={`w-10 h-10 md:w-12 md:h-12 transition-all duration-300  
             ${isSpecial ? "brightness-0 invert" : ""}`}
         />
       </div>
-      <h3 className="text-lg md:text-xl font-bold mb-3 transition-colors">
+      <h3 className="text-lg group-hover:text-white md:text-xl font-bold mb-3 transition-colors">
         {service.heading}
       </h3>
       <p
