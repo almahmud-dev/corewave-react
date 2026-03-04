@@ -62,8 +62,6 @@ const Navber = () => {
             <div className="lg:hidden">
               <button
                 onClick={() => setMenuOpen(true)}
-                className="p-3 rounded-full
-                shadow-lg hover:rotate-90 hover:scale-105 transition-all duration-300"
               >
                 <FiMenu size={28} />
               </button>
