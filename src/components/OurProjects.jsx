@@ -62,11 +62,11 @@ const OurProjects = () => {
                 >
                   {tab}
                   
-                  {/* ২. Framer Motion Sliding Underline (ম্যাজিক এখানে) */}
+                  {/* ২. Framer Motion Sliding Underline */}
                   {activeTab === tab && (
                     <motion.div 
                       layoutId="underline" 
-                      className="absolute left-0 right-0 bottom-[-20px] h-[4px] bg-[#00C37A] rounded-full z-20"
+                      className="absolute left-0 right-0 -bottom-5 h-[4px] bg-[#00C37A] rounded-full z-20"
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
                   )}
