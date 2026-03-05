@@ -56,7 +56,7 @@ const OurProjects = () => {
               {tabs.map((tab) => (
                 <button
                   key={tab}
-                  onMouseEnter={() => setActiveTab(tab)} // Hover করলে চেঞ্জ হবে
+                  onMouseEnter={() => setActiveTab(tab)} 
                   className={`cursor-pointer text-lg font-medium relative whitespace-nowrap px-2 transition-colors duration-300 z-10
                     ${activeTab === tab ? 'text-[#00C37A]' : 'text-[#7E7E7E]'}`}
                 >
