@@ -51,7 +51,7 @@ const OurProjects = () => {
           
           {/* Tab Navigation Container */}
           <div className="relative border-b-2 border-[#D9D9D9] mb-16 px-2">
-            <div className="flex justify-start md:justify-center items-center gap-6 md:gap-10 overflow-x-auto no-scrollbar pb-[18px] relative">
+            <div className="flex justify-start md:justify-center items-center gap-6 md:gap-10 overflow-x-auto no-scrollbar pb-4.5 relative">
               
               {tabs.map((tab) => (
                 <button
@@ -66,7 +66,7 @@ const OurProjects = () => {
                   {activeTab === tab && (
                     <motion.div 
                       layoutId="underline" 
-                      className="absolute left-0 right-0 -bottom-5 h-[4px] bg-[#00C37A] rounded-full z-20"
+                      className="absolute left-0 right-0 -bottom-5 h-1 bg-[#00C37A] rounded-full z-20"
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
                   )}
@@ -78,7 +78,7 @@ const OurProjects = () => {
 
         {/* ৩. Project Grid with Smooth Entrance */}
         {loading ? (
-          <div className="flex justify-center items-center min-h-[300px]">
+          <div className="flex justify-center items-center min-h-75">
              <motion.div 
                animate={{ rotate: 360 }}
                transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
@@ -102,7 +102,7 @@ const OurProjects = () => {
                   className="group flex flex-col items-center"
                 >
                   {/* Image Area */}
-                  <div className="rounded-[24px] overflow-hidden mb-8 w-full bg-gray-100 shadow-sm transition-shadow hover:shadow-xl">
+                  <div className="rounded-3xl overflow-hidden mb-8 w-full bg-gray-100 shadow-sm transition-shadow hover:shadow-xl">
                     <motion.img 
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.6 }}
