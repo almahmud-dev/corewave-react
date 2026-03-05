@@ -8,7 +8,6 @@ const OurProjects = () => {
 
   const tabs = ['Mobile App', 'Web Development', 'UI/UX Design', 'Graphic Design', 'Motion Graphic'];
 
-  // ১. API থেকে ডেটা ফেচ করা
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -36,7 +35,7 @@ const OurProjects = () => {
   const filteredProjects = projects.filter(item => item.category === activeTab);
 
   return (
-    <section className='pt-[91px] pb-20 bg-white font-sans overflow-hidden'>
+    <section className='pt-22.75 pb-20 bg-white font-sans overflow-hidden'>
       <div className="container mx-auto px-4">
         
         {/* Header Section */}
@@ -108,7 +107,7 @@ const OurProjects = () => {
                       transition={{ duration: 0.6 }}
                       src={item.image} 
                       alt={item.title} 
-                      className="w-full h-[280px] object-cover cursor-pointer" 
+                      className="w-full h-70 object-cover cursor-pointer" 
                     />
                   </div>
 
@@ -117,7 +116,7 @@ const OurProjects = () => {
                     <h4 className="text-[24px] font-bold text-[#1B1B1B] mb-3 capitalize">
                       {item.title}
                     </h4>
-                    <p className="text-[#7E7E7E] text-[16px] leading-[26px] max-w-[340px] mx-auto">
+                    <p className="text-[#7E7E7E] text-[16px] leading-6.5 max-w-85 mx-auto">
                       {item.desc}
                     </p>
                   </div>
