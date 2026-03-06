@@ -43,13 +43,13 @@ const OurProjects = () => {
           <motion.h3 
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className='text-[45px] text-[#1B1B1B] leading-tight font-bold mb-10'
+            className='text-[45px] text-[#1B1B1B] leading-tight font-bold mb-8.25'
           >
             Our Latest Project
           </motion.h3>
           
           {/* Tab Navigation Container */}
-          <div className="relative border-b-2 border-[#CECECE] mb-16 px-2">
+          <div className="relative border-b-4 border-[#CECECE] mb-16 px-2 max-w-223 mx-auto">
             <div className="flex justify-start md:justify-center items-center gap-6 md:gap-10 overflow-x-auto no-scrollbar pb-4.5 relative">
               
               {tabs.map((tab) => (
