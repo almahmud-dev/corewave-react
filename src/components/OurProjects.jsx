@@ -49,7 +49,7 @@ const OurProjects = () => {
           </motion.h3>
           
           {/* Tab Navigation Container */}
-          <div className="relative border-b-2 border-[#D9D9D9] mb-16 px-2">
+          <div className="relative border-b-2 border-[#CECECE] mb-16 px-2">
             <div className="flex justify-start md:justify-center items-center gap-6 md:gap-10 overflow-x-auto no-scrollbar pb-4.5 relative">
               
               {tabs.map((tab) => (
@@ -61,7 +61,7 @@ const OurProjects = () => {
                 >
                   {tab}
                   
-                  {/* ২. Framer Motion Sliding Underline */}
+                  {/*  Framer Motion Sliding Underline */}
                   {activeTab === tab && (
                     <motion.div 
                       layoutId="underline" 
@@ -75,7 +75,7 @@ const OurProjects = () => {
           </div>
         </div>
 
-        {/* ৩. Project Grid with Smooth Entrance */}
+        {/* Project Grid with Smooth Entrance */}
         {loading ? (
           <div className="flex justify-center items-center min-h-75">
              <motion.div 
